@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Learning</title>
+    <style>
+        .bg-black {
+            background-color: #212121;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body class="bg-black">
+    <div>
+        <h1 id="title" class="heading">DOM Learning <span style="display:none;">Some Text</span></h1>
+        <h2>Lorem ipsum dolor sit</h2>
+        <h2>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo, sapiente.</h2>
+        <h2>Lorem ipsum</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <input type="password" name="" id="">
+        <ul>
+            <li>One</li>
+            <li>Two</li>
+            <li>Three</li>
+            <li>Four</li>
+        </ul>
+    </div>
+
+    <script>
+
+        const title = document.getElementById('title')
+        title.style.backgroundColor = 'red'
+        title.style.padding = '20px'
+        title.style.borderRadius = '20px'
+        title.style.margin = '20px'
+
+
+        // innerText retrieves or sets the visible text within an element
+        console.log(title.innerText)    // DOM Learning
+
+        // textContent retrieves or sets all the text within an element, including invisible text nodes
+        console.log(title.textContent)  // DOM Learning Some Text
+
+        // innerHTML retrieves or sets the HTML content within an element.
+        console.log(title.innerHTML)    // DOM Learning <span style="display:none;">Some Text</span>
+
+
+        // querySelector selects the first element within the document that matches a specified CSS selector.
+        console.log(document.querySelector('h2')) // <h2>Lorem ipsum dolor sit</h2>
+
+        console.log(document.querySelector('#title')) // h1#title.heading
+        console.log(document.querySelector('.heading')) // h1#title.heading
+
+        console.log(document.querySelector('input[type="password"]')) // <input type="password" name id>
+
+        const myul = document.querySelector('ul')
+        const myli = myul.querySelector('li')
+        myli.style.backgroundColor = 'Green'
+        myli.innerText = 'Five'
+
+
+        //querySelectorAll selects all elements within the document that match a specified CSS selector, returning a static NodeList.
+        console.log(document.querySelectorAll('h2'))
+
+        const templilist = myul.querySelectorAll('li')
+        // templilist.style.backgroundColor='yellow' // Error
+        templilist.forEach((l) => { l.style.backgroundColor = 'yellow' })
+        templilist[2].style.backgroundColor = 'blue'
+
+        const myH1 = document.querySelectorAll('h1')
+        // myH1.style.backgroundColor='blue' // Error
+        // querySelectorAll returns a collection of elements, not a single element
+
+
+    </script>
+</body>
+
+</html>
