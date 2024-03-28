@@ -16,13 +16,14 @@
 <script>
     let start = document.querySelector('#start')
     let stop = document.querySelector('#stop')
-    let intervalid = function () {
-        console.log(new Date())
-    }
-    
+
+    let intervalid;
     start.addEventListener('click', function () {
-        setInterval(intervalid, 1000)
+         intervalid = setInterval(function () {
+            console.log(new Date());
+        }, 1000);
     })
+
     stop.addEventListener('click', function () {
         clearInterval(intervalid)
     })
